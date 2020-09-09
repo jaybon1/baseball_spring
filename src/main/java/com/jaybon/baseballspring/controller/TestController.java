@@ -73,7 +73,7 @@ public class TestController {
 		
 		model.addAttribute("stadiumList", stadiumRepository.findAll());
 		
-		return "stadiumAdd";
+		return "redirect:/stadiumList";
 	}
 	
 	// 팀 등록 페이지
@@ -106,7 +106,7 @@ public class TestController {
 		
 		model.addAttribute("teamList", teamRepository.findAll());
 		
-		return "teamAdd";
+		return "redirect:/teamList";
 	}
 	
 	// 선수 등록 페이지
@@ -128,7 +128,7 @@ public class TestController {
 		
 		model.addAttribute("playerList", playerRepsitory.findAll());
 		
-		return "playerAdd";
+		return "redirect:/playerList";
 	}
 	
 	// 퇴출선수 등록 페이지
@@ -151,7 +151,7 @@ public class TestController {
 		return "outPlayerAdd";
 	}
 	
-	// 선수 등록하기
+	// 퇴출선수 등록하기
 	@PostMapping({"outPlayer"})
 	public String outPlayerAddProc(OutPlayer outPlayer, int playerId, Model model) {
 		
@@ -161,7 +161,7 @@ public class TestController {
 		
 		model.addAttribute("playerList", playerRepsitory.findAll());
 		
-		return "playerList";
+		return "redirect:/playerList";
 	}
 
 	// 야구장 리스트 페이지

@@ -91,15 +91,30 @@ function teamDelete(teamId){
 		$("#tbody").empty();
 		
 		for(var rankTeamDto of resp){
-
-				var data = 	
+			
+			var data = "";
+			
+			if(rankTeamDto.team.stadium == null){
+				
+				data = 	
+					"					<tr>\r\n" + 
+					"						<td>"+rankTeamDto.rank+"</td>\r\n" + 
+					"						<td>"+rankTeamDto.team.name+"</td>\r\n" + 
+					"						<td>없음</td>\r\n" + 
+					"						<td><button class=\"btn btn-danger btn-delete\" onclick=\"teamDelete("+rankTeamDto.team.id+")\">삭제</button></td>\r\n" + 
+					"					</tr>"
+				
+			} else {
+				
+				data = 	
 					"					<tr>\r\n" + 
 					"						<td>"+rankTeamDto.rank+"</td>\r\n" + 
 					"						<td>"+rankTeamDto.team.name+"</td>\r\n" + 
 					"						<td>"+rankTeamDto.team.stadium.name+"</td>\r\n" + 
 					"						<td><button class=\"btn btn-danger btn-delete\" onclick=\"teamDelete("+rankTeamDto.team.id+")\">삭제</button></td>\r\n" + 
 					"					</tr>"
-					
+				
+			}					
 
 			$("#tbody").append(data);
 			

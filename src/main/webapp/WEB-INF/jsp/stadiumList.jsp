@@ -94,14 +94,31 @@ function stadiumDelete(stadiumId){
 		$("#tbody").empty();
 		
 		for(var rankStadiumDto of resp){
-
-				var data = 	
+			
+			var data = "";
+			
+			if(rankStadiumDto.stadium.team == null){
+				
+				data = 	
+					"					<tr>\r\n" + 
+					"						<td>"+rankStadiumDto.rank+"</td>\r\n" + 
+					"						<td>"+rankStadiumDto.stadium.name+"</td>\r\n" + 
+					"						<td>없음</td>\r\n" + 
+					"						<td><button class=\"btn btn-danger btn-delete\" onclick=\"stadiumDelete("+rankStadiumDto.stadium.id+")\">삭제</button></td>\r\n" + 
+					"					</tr>";
+				
+			} else{
+				
+				data = 	
 					"					<tr>\r\n" + 
 					"						<td>"+rankStadiumDto.rank+"</td>\r\n" + 
 					"						<td>"+rankStadiumDto.stadium.name+"</td>\r\n" + 
 					"						<td>"+rankStadiumDto.stadium.team.name+"</td>\r\n" + 
 					"						<td><button class=\"btn btn-danger btn-delete\" onclick=\"stadiumDelete("+rankStadiumDto.stadium.id+")\">삭제</button></td>\r\n" + 
 					"					</tr>";
+
+			}
+
 
 			$("#tbody").append(data);
 			

@@ -44,7 +44,7 @@ public class OutPlayer {
 	@Column(name = "createDate")
 	private Timestamp createDate;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.DETACH)
 	@JoinColumn(name = "playerId")
 	private Player player;
 	

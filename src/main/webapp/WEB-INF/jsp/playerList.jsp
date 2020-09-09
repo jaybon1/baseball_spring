@@ -92,8 +92,23 @@ function playerDelete(playerId){
 		$("#tbody").empty();
 		
 		for(var rankPlayerDto of resp){
-
-				var data = 	
+			
+			var data = "";
+			
+			if(rankPlayerDto.player.team == null ){
+				
+				data = 	
+					"					<tr>\r\n" + 
+					"						<td>"+rankPlayerDto.rank+"</td>\r\n" + 
+					"						<td>"+rankPlayerDto.player.name+"</td>\r\n" + 
+					"						<td>"+rankPlayerDto.player.position+"</td>\r\n" + 
+					"						<td>없음</td>\r\n" + 
+					"						<td><button class=\"btn btn-danger btn-delete\" onclick=\"playerDelete("+rankPlayerDto.player.id+")\">삭제</button></td>\r\n" + 
+					"					</tr>";
+				
+			} else {
+				
+				data = 	
 					"					<tr>\r\n" + 
 					"						<td>"+rankPlayerDto.rank+"</td>\r\n" + 
 					"						<td>"+rankPlayerDto.player.name+"</td>\r\n" + 
@@ -101,6 +116,8 @@ function playerDelete(playerId){
 					"						<td>"+rankPlayerDto.player.team.name+"</td>\r\n" + 
 					"						<td><button class=\"btn btn-danger btn-delete\" onclick=\"playerDelete("+rankPlayerDto.player.id+")\">삭제</button></td>\r\n" + 
 					"					</tr>";
+
+			}
 
 			$("#tbody").append(data);
 			

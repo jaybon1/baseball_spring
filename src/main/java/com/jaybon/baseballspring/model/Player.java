@@ -78,12 +78,12 @@ public class Player {
 	@Column(name = "position")
 	private String position;
 	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
 	@JoinColumn(name = "teamId")
 	@JsonIgnoreProperties({"players"})
 	private Team team;
 	
-	@OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "player", cascade = CascadeType.DETACH)
 	@JsonIgnoreProperties({"player"})
 	private OutPlayer outPlayer;
 	
