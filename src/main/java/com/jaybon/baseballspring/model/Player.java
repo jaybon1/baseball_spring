@@ -83,7 +83,7 @@ public class Player {
 	@JsonIgnoreProperties({"players"})
 	private Team team;
 	
-	@OneToOne(mappedBy = "player", cascade = CascadeType.DETACH)
+	@OneToOne(mappedBy = "player", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({"player"})
 	private OutPlayer outPlayer;
 	

@@ -42,7 +42,7 @@ public class Team {
 	@Column(name = "name")
 	private String name;
 	
-	@OneToMany(mappedBy = "team", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
+	@OneToMany(mappedBy = "team", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties({"team"}) // players안의 team안가져오기
 	private List<Player> players;
 

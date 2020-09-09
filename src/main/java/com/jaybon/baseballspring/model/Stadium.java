@@ -39,7 +39,7 @@ public class Stadium {
 	@Column(name = "name")
 	private String name;
 	
-	@OneToOne(mappedBy = "stadium", cascade = CascadeType.DETACH)
+	@OneToOne(mappedBy = "stadium", cascade = CascadeType.REMOVE)
 	private Team team;
 	
 	@CreationTimestamp

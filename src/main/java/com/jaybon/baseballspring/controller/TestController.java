@@ -46,19 +46,6 @@ public class TestController {
 	
 	
 	// 아구장 등록 페이지
-	@GetMapping({"test"})
-	public String test() {
-		
-//		playerService.test();
-		
-//		List<PositionDto> positionDtos = playerRepsitory.mPositionPlayer();
-//		
-//		System.out.println(positionDtos);
-		
-		return "stadiumAdd";
-	}
-	
-	// 아구장 등록 페이지
 	@GetMapping({"stadiumAdd"})
 	public String stadiumAdd() {
 		
@@ -226,14 +213,7 @@ public class TestController {
 	@DeleteMapping({"teamList/{teamId}"})
 	public @ResponseBody List<RankTeamDto> teamDelete(@PathVariable int teamId ,Model model) {
 		
-		List<Player> playerListEntity = playerRepsitory.findByTeamId(teamId);
-		
-		for (Player player : playerListEntity) {
-			outPlayerRepository.mDeleteByPlayerId(player.getId());
-		}
-
-		playerRepsitory.mDeleteByTeamId(teamId);
-		teamRepository.mDeleteById(teamId);
+		teamRepository.deleteById(teamId);
 		
 		List<Team> teamListEntity = teamRepository.findAllByOrderByName();
 		
@@ -272,7 +252,7 @@ public class TestController {
 	@DeleteMapping({"playerList/{playerId}"})
 	public @ResponseBody List<RankPlayerDto> playerDelete(@PathVariable int playerId) {
 		
-		playerRepsitory.mDeleteById(playerId);
+		playerRepsitory.deleteById(playerId);
 		
 		List<Player> playerListEntity = playerRepsitory.findAllByOrderByName();
 		
