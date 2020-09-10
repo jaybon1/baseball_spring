@@ -1,7 +1,5 @@
 package com.jaybon.baseballspring.dto;
 
-import javax.persistence.Entity;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

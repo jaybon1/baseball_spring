@@ -21,7 +21,6 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.jaybon.baseballspring.dto.PositionDto;
-import com.jaybon.baseballspring.dto.RankPlayerDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
